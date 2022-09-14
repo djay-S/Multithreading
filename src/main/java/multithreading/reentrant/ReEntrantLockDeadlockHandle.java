@@ -9,7 +9,7 @@ public class ReEntrantLockDeadlockHandle {
     public static void main(String[] args) throws InterruptedException {
         unlocked();
 
-        System.out.println("With locking");
+        System.out.println("With locking.");
 
         locked();
     }
