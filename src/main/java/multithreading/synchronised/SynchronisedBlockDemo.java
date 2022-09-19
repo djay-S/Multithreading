@@ -82,8 +82,8 @@ public class SynchronisedBlockDemo {
     }
 
     private static void blockLevelSynchronized() {
-//        The synchronise lock is on an object 'lock1' for stage1() and 'lock2' for stage2()
-//        Hence threads dont have to wait for the lock to be released since the menthods are synchronised on different objects
+//        The synchronise lock is on the object 'lock1' for stage1() and 'lock2' for stage2()
+//        Hence threads dont have to wait for the lock to be released since the methods are synchronised on different objects
         System.out.println("Starting object synchronised...");
         Stopwatch timer = Stopwatch.createStarted();
 
@@ -106,7 +106,7 @@ public class SynchronisedBlockDemo {
     }
 
     private static void methodLevelSynchronized() {
-//        The intrinsic lock is on the SynchronisedBlockDemo class
+//        The SynchronisedBlockDemo class has only one intrinsic lock
 //        Hence if one thread locks a method, the other thread has to wait for the lock to be released to access any method
         System.out.println("Starting stage synchronised...");
         Stopwatch timer = Stopwatch.createStarted();
