@@ -1,4 +1,4 @@
-package multithreading.producerConsumer;
+package multithreading.producerConsumer.usingBlockingQueue;
 
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -7,18 +7,19 @@ import java.util.concurrent.BlockingQueue;
 //https://www.youtube.com/watch?v=Vrt5LqpH2D0&list=PLBB24CFB073F1048E&index=7
 public class ProducerConsumerDemo {
 
-//    No need to explicitly synchromise as it is taken care of by the BlockingQueue
+//    No need to explicitly synchronise as it is taken care of by the BlockingQueue
 //    If the queue is full, BlockingQueue will wait till consumes the queue
 //    If the queue is empty, BlockingQueue will wait till producer adds to the queue
     private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
     private static Random random = new Random();
+    private static int value = 0;
 
 
     //    Producers are responsible for producing things which can be shared across other producers using the queue
     public static void producer() throws InterruptedException {
 
         while (true) {
-            queue.put(random.nextInt(100));
+            queue.put(value++);
         }
     }
 
